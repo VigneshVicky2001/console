@@ -21,7 +21,7 @@ const Header = ({ toggleSidebar, showLogout, logoUrl }) => {
   return (
     <GlassAppBar position="fixed" className="header">
       <Toolbar sx={{ height: '100%', padding: '0 20px' }}>
-      <IconButton
+      {/* <IconButton
           edge="start"
           color="inherit"
           aria-label="menu"
@@ -29,7 +29,7 @@ const Header = ({ toggleSidebar, showLogout, logoUrl }) => {
           sx={{ marginRight: 2 }}
         >
           <MenuIcon sx={{ fontSize: 40, color: '#fff' }} />
-        </IconButton>
+        </IconButton> */}
 
         {/* {logoUrl && (
           <Box
