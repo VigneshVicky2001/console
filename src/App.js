@@ -8,6 +8,9 @@ import Sidebar from './components/common/Sidebar';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Dashboard from './components/dashboard';
 import Datastore from './components/datastore/Datastore';
+import Movies from './components/datastore/movies/Movies';
+import Trailers from './components/datastore/trailers/Trailers';
+import Episodes from './components/datastore/episodes/Episodes';
 
 const theme = createTheme();
 
@@ -31,6 +34,9 @@ function App() {
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/datastore" element={<Datastore />}/>
+              <Route path="/datastore/movies" element={<Movies />}/>
+              <Route path="/datastore/trailers" element={<Trailers />}/>
+              <Route path="/datastore/episodes" element={<Episodes />}/>
             </Routes>
           </div>
         </div>

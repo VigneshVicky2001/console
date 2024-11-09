@@ -42,17 +42,17 @@ const Sidebar = () => {
     {
       label: 'Dashboard',
       path: '/dashboard',
-      icon: <DashboardIcon />,
-      subItems: [
-        { label: 'Sub-item 1', path: '/dashboard/sub1' },
-        { label: 'Sub-item 2', path: '/dashboard/sub2' },
-        { label: 'Sub-item 3', path: '/dashboard/sub3' },
-      ],
+      icon: <DashboardIcon />
     },
     {
       label: 'Datastore',
       path: '/datastore',
       icon: <StorageIcon />,
+      subItems: [
+        { label: 'movies', path: '/datastore/movies' },
+        { label: 'trailers', path: '/datastore/trailers' },
+        { label: 'episodes', path: '/datastore/episodes' },
+      ],
     },
   ];
 
@@ -80,6 +80,7 @@ const Sidebar = () => {
           transition: 'width 0.3s ease',
           overflowX: 'hidden',
           zIndex: '1300',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
         },
       }}
       open={!isMinimized}
@@ -123,7 +124,8 @@ const Sidebar = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    fontSize: '15px',
+                    fontWeight: 'bold',
+                    fontSize: '16px',
                     flexGrow: 1,
                     userSelect: 'none',
                     color: location.pathname === item.path ? '#4caf50' : '#fff',
@@ -144,7 +146,6 @@ const Sidebar = () => {
               )}
             </ListItem>
 
-            {/* Collapse section for subitems */}
             {item.subItems && (
               <Collapse in={openDropdown[index]} timeout="auto" unmountOnExit>
                 {item.subItems.map((subItem, subIndex) => (
@@ -160,14 +161,16 @@ const Sidebar = () => {
                     }}
                     onClick={() => navigateToPage(subItem.path)}
                   >
-                    <ListItemText
-                      primary={subItem.label}
+                    <Typography
                       sx={{
+                        fontSize: '15px',
                         color: location.pathname === subItem.path ? '#4caf50' : '#fff',
                         transition: 'color 0.3s ease',
                         ml: isMinimized ? 0 : 2,
                       }}
-                    />
+                    >
+                      {subItem.label}
+                    </Typography>
                   </ListItem>
                 ))}
               </Collapse>
